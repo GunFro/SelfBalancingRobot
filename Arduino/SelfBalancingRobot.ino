@@ -56,10 +56,10 @@ void disableR(bool orEnable) {
   digitalWrite(MOT_R_ENB, orEnable);
 }
 void forwardL(bool orBack) {
-  digitalWrite(MOT_L_DIR, !orBack);
+  digitalWrite(MOT_L_DIR, !orBack); // If stepper is going wrong way, remove the "!"
 }
 void forwardR(bool orBack) {
-  digitalWrite(MOT_R_DIR, !orBack);
+  digitalWrite(MOT_R_DIR, !orBack); // If stepper is going wrong way, remove the "!"
 }
 void setSpeed(int16_t s, int16_t rotation) {
   int16_t sL = s - rotation;
@@ -187,7 +187,7 @@ void getRotation(int16_t* x, int16_t* y, int16_t* z) {
 }
 
 void calibrateGyro() {
-  int32_t x = 0, y = 0, z = 0;
+  int32_t x = 0, y = 0, z = 0; // Compiler warning if not set.
 
   for (int i = 0; i < 500; i++) {
     getRotation(&gyroX, &gyroY, &gyroZ);
