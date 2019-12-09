@@ -1,1 +1,2 @@
-Big pictures, right click and open in new tab make a better view.
+Big pictures.
+Right click and open in new tab makes a better view.
